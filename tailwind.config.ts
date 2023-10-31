@@ -19,7 +19,8 @@ const config: Config = {
         purple: '#8284FA',
         purpleDark: '#5E60CE',
         blue: '#4EA8DE',
-        blueDark: '#1E6F9F'
+        blueDark: '#1E6F9F',
+        danger: '#E25858'
       }
     }
   },
