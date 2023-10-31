@@ -8,6 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      width: {
+        520: '32.5rem',
+        608: '38rem'
+      },
+      fontSize: {
+        40: '2.5rem'
+      },
       colors: {
         gray100: '#F2F2F2',
         gray200: '#D9D9D9',
