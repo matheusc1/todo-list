@@ -10,7 +10,8 @@ const config: Config = {
     extend: {
       width: {
         520: '32.5rem',
-        608: '38rem'
+        638: '39.875rem',
+        736: '46rem'
       },
       fontSize: {
         40: '2.5rem'

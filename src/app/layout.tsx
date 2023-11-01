@@ -18,22 +18,13 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-        <div className="overflow-hidden h-screen relative">
+        <div className="overflow-hidden min-w-full h-screen relative">
           <div className="flex items-center justify-center h-1/4 bg-gray700 gap-3">
             <Rocket />
             <div>
               <span className="text-blue text-40 font-black">to</span>
               <span className="text-purpleDark text-40 font-black">do</span>
             </div>
-          </div>
-
-          <div className="absolute top-32 left-0 right-0 mx-auto flex w-max items-center justify-center gap-2 mt-3">
-            <input
-              type="text"
-              placeholder="Adicione uma nova tarefa"
-              className="placeholder:text-gray300 text-gray100 bg-gray500 w-520 p-3 rounded-lg border-none focus:outline-none focus:ring-purpleDark"
-            />
-            <button className="bg-blueDark hover:bg-blue text-gray100 text-center rounded-lg p-3 text-sm">Criar +</button>
           </div>
           {children}
         </div>

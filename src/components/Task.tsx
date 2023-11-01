@@ -7,7 +7,7 @@ interface TaskProps {
 
 export default function Task({ task }: TaskProps) {
   return (
-    <div className={`flex w-608 bg-gray500 rounded-lg mb-3 items-center justify-center p-3
+    <div className={`flex w-736 bg-gray500 rounded-lg mb-3 items-center justify-center p-3
       ${task.completed ? "border-none" : "border border-solid border-gray400"}`}
     >
       <input
@@ -19,7 +19,7 @@ export default function Task({ task }: TaskProps) {
       <p className={`mx-3 text-sm ${task.completed ? "text-gray300 line-through" : "text-gray100"}`}>
         {task.desc}
       </p>
-      <Trash2 className="cursor-pointer text-gray300 hover:text-danger h-7 w-7" />
+      <Trash2 className="cursor-pointer text-gray300 hover:text-danger h-6 w-6" />
     </div>
   )
-} 
+}
