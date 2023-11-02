@@ -81,6 +81,7 @@ export default function Home() {
       </div>
 
       {tasks
+      .sort((a, b) => (a.completed === b.completed ? 0 : a.completed ? 1 : -1))
       .map(task => <Task
         onChange={() =>handleCompleted(task.id)}
         key={task.id}
