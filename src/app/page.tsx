@@ -32,6 +32,11 @@ export default function Home() {
     )
   }
 
+  function handleCompleted(id: Number) {
+    setTasks(tasks.map(task => (task.id === id) ?
+    {...task, completed: !task.completed} : task))
+  }
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setTask({
       ...task,
@@ -77,6 +82,7 @@ export default function Home() {
 
       {tasks
       .map(task => <Task
+        onChange={() =>handleCompleted(task.id)}
         key={task.id}
         task={task}
         handleDelete={() => handleDelete(task.id)}
