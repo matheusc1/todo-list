@@ -26,6 +26,12 @@ export default function Home() {
     clear()
   }
 
+  function handleDelete(id: Number) {
+    setTasks(tasks => 
+      tasks.filter(task => task.id !== id)
+    )
+  }
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setTask({
       ...task,
@@ -69,7 +75,12 @@ export default function Home() {
         </div>
       </div>
 
-      {tasks.map(task => <Task key={task.id} task={task} />)}
+      {tasks
+      .map(task => <Task
+        key={task.id}
+        task={task}
+        handleDelete={() => handleDelete(task.id)}
+      />)}
 
       <Input
         value={task.desc}
