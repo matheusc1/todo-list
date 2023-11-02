@@ -1,6 +1,13 @@
 import { ClipboardList } from "lucide-react"
+import Input from "./Input"
 
-export default function EmptyTasks() {
+interface EmptyTasksProps {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onClick: () => void
+  value: string
+}
+
+export default function EmptyTasks({ onChange, onClick, value }: EmptyTasksProps) {
   return (
     <div className="flex flex-col items-center justify-start h-3/4 bg-gray600">
       <div className="flex items-center mt-16 justify-between w-736">
@@ -22,6 +29,8 @@ export default function EmptyTasks() {
         <p className="text-gray300 font-semibold mt-4">Você ainda não tem tarefas cadastradas</p>
         <p className="text-gray300">Crie tarefas e organize seus itens a fazer</p>
       </div>
+
+      <Input value={value} onChange={onChange} onClick={onClick} />
     </div>
   )
 }
