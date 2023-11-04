@@ -15,9 +15,10 @@ export default function Home() {
   const completedTasks = tasks.filter(task => task.completed === true)
 
   useEffect(() => {
-    const tasks = JSON.parse(localStorage.getItem('tasks') ?? '')
-    if (tasks) {
-      setTasks(tasks)
+    const tasks = localStorage.getItem('tasks')
+    if (tasks !== null) {
+      const storedTasks = JSON.parse(tasks)
+      setTasks(storedTasks)
     }
   }, [])
 
