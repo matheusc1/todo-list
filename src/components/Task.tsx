@@ -5,14 +5,16 @@ interface TaskProps {
   task: Task
   handleDelete: () => void
   onChange: () => void
+  checked: boolean
 }
 
-export default function Task({ task, handleDelete, onChange }: TaskProps) {
+export default function Task({ task, handleDelete, onChange, checked }: TaskProps) {
   return (
     <div className={`flex w-736 bg-gray500 rounded-lg mb-3 items-center justify-between p-3
       ${task.completed ? "border-none" : "border border-solid border-gray400"}`}
     >
       <input
+        checked={checked}
         onChange={onChange}
         type="checkbox"
         className="ml-1 w-5 h-5 rounded-full border-2 border-solid

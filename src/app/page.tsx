@@ -3,7 +3,7 @@ import EmptyTasks from "@/components/EmptyTasks"
 import Input from "@/components/Input"
 import Task from "@/components/Task"
 import { Task as ITask } from "@/types/task.interface"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Home() {
   const [tasks, setTasks] = useState<ITask[]>([])
@@ -14,6 +14,13 @@ export default function Home() {
   })
   const completedTasks = tasks.filter(task => task.completed === true)
 
+  useEffect(() => {
+    const tasks = JSON.parse(localStorage.getItem('tasks') ?? '')
+    if (tasks) {
+      setTasks(tasks)
+    }
+  }, [])
+
   function handleAdd() {
     const newTask: ITask = {
       id: tasks.length + 1,
@@ -22,19 +29,23 @@ export default function Home() {
     }
 
     if (!newTask.desc) return
-    setTasks([...tasks, newTask])
+    const updatedTasks = [...tasks, newTask]
+    setTasks(updatedTasks)
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks))
     clear()
   }
 
   function handleDelete(id: Number) {
-    setTasks(tasks => 
-      tasks.filter(task => task.id !== id)
-    )
+    const updatedTasks = tasks.filter(task => task.id !== id)
+    setTasks(updatedTasks)
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks))
   }
 
   function handleCompleted(id: Number) {
-    setTasks(tasks.map(task => (task.id === id) ?
-    {...task, completed: !task.completed} : task))
+    const updatedTasks = tasks.map(task =>
+    task.id === id ? {...task, completed: !task.completed} : task)
+    setTasks(updatedTasks)
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks))
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -50,7 +61,6 @@ export default function Home() {
       desc: '',
       completed: false
     })
-    console.log('clear')
   }
 
   if (tasks.length === 0) return <EmptyTasks
@@ -83,6 +93,7 @@ export default function Home() {
       {tasks
       .sort((a, b) => (a.completed === b.completed ? 0 : a.completed ? 1 : -1))
       .map(task => <Task
+        checked={task.completed}
         onChange={() =>handleCompleted(task.id)}
         key={task.id}
         task={task}
