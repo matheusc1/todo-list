@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 export default function Home() {
   const [tasks, setTasks] = useState<ITask[]>([])
   const [task, setTask] = useState({
-    id: tasks.length + 1,
+    id: crypto.randomUUID(),
     desc: '',
     completed: false
   })
@@ -23,7 +23,7 @@ export default function Home() {
 
   function handleAdd() {
     const newTask: ITask = {
-      id: tasks.length + 1,
+      id: crypto.randomUUID(),
       desc: task.desc,
       completed: false
     }
@@ -35,13 +35,13 @@ export default function Home() {
     clear()
   }
 
-  function handleDelete(id: Number) {
+  function handleDelete(id: String) {
     const updatedTasks = tasks.filter(task => task.id !== id)
     setTasks(updatedTasks)
     localStorage.setItem('tasks', JSON.stringify(updatedTasks))
   }
 
-  function handleCompleted(id: Number) {
+  function handleCompleted(id: String) {
     const updatedTasks = tasks.map(task =>
     task.id === id ? {...task, completed: !task.completed} : task)
     setTasks(updatedTasks)
@@ -57,7 +57,7 @@ export default function Home() {
 
   function clear() {
     setTask({
-      id: tasks.length + 1,
+      id: crypto.randomUUID(),
       desc: '',
       completed: false
     })
