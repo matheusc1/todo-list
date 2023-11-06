@@ -72,7 +72,7 @@ export default function Home() {
   
   return (
     <div className="overflow-auto flex flex-col items-center justify-start h-3/4 bg-gray600">
-      <div className="flex items-center mt-16 justify-between w-736 mb-6">
+      <div className="flex items-center mt-16 justify-between mb-6 w-96 px-2 sm:w-736 sm:px-0">
         <div className="flex gap-2 items-center justify-center">
           <p className="text-blueDark font-bold text-sm">
             Tarefas criadas

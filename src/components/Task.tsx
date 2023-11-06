@@ -10,7 +10,7 @@ interface TaskProps {
 
 export default function Task({ task, handleDelete, onChange, checked }: TaskProps) {
   return (
-    <div className={`flex w-736 bg-gray500 rounded-lg mb-3 items-center justify-between p-3
+    <div className={`flex w-368 sm:w-736 bg-gray500 rounded-lg mb-3 items-center justify-between p-3
       ${task.completed ? "border-none" : "border border-solid border-gray400"}`}
     >
       <input

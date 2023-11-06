@@ -8,7 +8,7 @@ interface InputProps {
 
 export default function Input({ onChange, onClick, value }: InputProps) {
   return (
-    <div className="absolute w-736 top-1/4 bottom-full flex items-center justify-center gap-2 z-10">
+    <div className="absolute px-2 w-96 sm:w-736 sm:px-0 top-1/4 bottom-full flex items-center justify-center gap-2 z-10">
       <input
         value={value}
         onChange={onChange}
