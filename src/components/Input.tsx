@@ -8,13 +8,13 @@ interface InputProps {
 
 export default function Input({ onChange, onClick, value }: InputProps) {
   return (
-    <div className="absolute px-2 w-96 sm:w-736 sm:px-0 top-1/4 bottom-full flex items-center justify-center gap-2 z-10">
+    <div className="absolute w-full max-w-sm px-2 sm:max-w-3xl sm:px-0 top-1/4 bottom-full flex items-center justify-center gap-2 z-10">
       <input
         value={value}
         onChange={onChange}
         type="text"
         placeholder="Adicione uma nova tarefa"
-        className="placeholder:text-gray300 text-gray100 w-638 bg-gray500 p-3 rounded-lg border-none focus:outline-none focus:ring-purpleDark"
+        className="placeholder:text-gray300 text-gray100 w-736 bg-gray500 p-3 rounded-lg border-none focus:outline-none focus:ring-purpleDark"
       />
       <button onClick={onClick} className="flex items-center justify-center gap-2 bg-blueDark hover:bg-blue text-center rounded-lg py-3 px-3 text-sm">
         <span className="text-gray100 font-bold">Criar</span> <PlusCircle size={20} className="text-gray100" />
